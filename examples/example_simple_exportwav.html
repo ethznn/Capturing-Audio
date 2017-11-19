@@ -18,7 +18,7 @@
 
   <button onclick="startRecording(this);">record</button>
   <button onclick="stopRecording(this);" disabled>stop</button>
-  
+  <input type="text" id="fname">
   <h2>Recordings</h2>
   <ul id="recordingslist"></ul>
   
@@ -70,11 +70,11 @@
       var li = document.createElement('li');
       var au = document.createElement('audio');
       var hf = document.createElement('a');
-      
+      var x = document.getElementById("fname").value;
       au.controls = true;
       au.src = url;
       hf.href = url;
-      hf.download = new Date().toISOString() + '.wav';
+      hf.download = x + '.wav';
       hf.innerHTML = hf.download;
       li.appendChild(au);
       li.appendChild(hf);
